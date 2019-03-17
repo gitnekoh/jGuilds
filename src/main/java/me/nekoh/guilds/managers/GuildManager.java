@@ -54,7 +54,6 @@ public class GuildManager {
                 guild.setMemberInvites(new ArrayList<>());
                 guild.setModerators(UUIDUtils.deserialize((List<String>) doc.get("moderators")));
                 guild.setMembers(UUIDUtils.deserialize((List<String>) doc.get("members")));
-                System.out.println(guild.getMembers());
                 guild.setAlliesInvites(new ArrayList<>());
                 guild.setAllies(GuildUtils.deserialize((List<String>) doc.get("allies")));
 

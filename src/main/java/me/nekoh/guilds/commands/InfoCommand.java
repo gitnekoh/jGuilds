@@ -18,7 +18,7 @@ import java.util.Date;
 public class InfoCommand extends BaseCommand {
 
     @CommandAlias("ginfo|info")
-    @CommandPermission("guilds.guild")
+    @CommandPermission("guilds.info")
     @Syntax("<tag>")
     public void execute(CommandSender sender, String tag) {
         if (!(sender instanceof Player)) {
