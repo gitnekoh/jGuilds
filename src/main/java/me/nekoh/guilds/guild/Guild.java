@@ -87,4 +87,8 @@ public class Guild {
             Bukkit.getScheduler().runTask(Guilds.getInstance(), () -> Bukkit.getLogger().log(Level.INFO, "Saved guild " + this.name + " data in " + (System.currentTimeMillis() - now) + " ms."));
         });
     }
+
+    public void updateCuboidSize() {
+        this.cuboid = new Cuboid(new Location(center.getWorld(), center.getX() + cuboidSize, 256, center.getZ() + cuboidSize), new Location(center.getWorld(), center.getX() - cuboidSize, 0, center.getZ() - cuboidSize));
+    }
 }

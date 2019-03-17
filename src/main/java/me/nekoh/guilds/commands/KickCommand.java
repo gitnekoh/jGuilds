@@ -64,10 +64,12 @@ public class KickCommand extends BaseCommand {
         }
 
         playerData.getGuild().getModerators().remove(target.getUniqueId());
-        playerData.getGuild().getMembers().remove(targetData.getUuid());
+        playerData.getGuild().getMembers().remove(target.getUniqueId());
         targetData.setGuild(null);
         player.sendMessage(CC.translate("&aWyrzuciles gracza &f" + target.getName() + "&a z gildii."));
         target.sendMessage(CC.translate("&cZostales wyrzucony z gildii &f" + playerData.getGuild().getTag() + "&c!"));
         sender.sendMessage(CC.translate("&aGracz &f" + target.getName() + "&a zostal wyrzucony z gildii &f" + playerData.getGuild().getTag() + "&a."));
+
+        playerData.getGuild().save();
     }
 }

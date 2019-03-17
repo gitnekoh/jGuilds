@@ -39,6 +39,7 @@ public class LeaveCommand extends BaseCommand {
         if (playerData.getGuild().getLeader().equals(player.getUniqueId())) {
             MessageUtils.broadcast("&aGildia &f" + playerData.getGuild().getTag() + "&a zostala usunieta.");
             playerData.getGuild().getMembers().forEach(member -> PlayerManager.getPlayers().get(member).setGuild(null));
+            GuildManager.delete(playerData.getGuild().getTag());
             GuildManager.getGuilds().remove(playerData.getGuild().getTag());
         } else {
             playerData.getGuild().getMembers().forEach(member -> PlayerManager.getPlayers().get(member).getPlayer().sendMessage(CC.translate("&aGracz &f" + player.getName() + " &aopuscil gildie.")));

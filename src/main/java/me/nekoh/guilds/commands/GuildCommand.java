@@ -21,6 +21,7 @@ public class GuildCommand extends BaseCommand {
                 "&7" + CC.shortLine() + "&f[GILDIE]&7" + CC.shortLine() + "\n" +
                         "&f/gildia &a- Wszystkie komendy dotyczace gildii.\n" +
                         "&f/gzaloz <tag> <name> &a- Zakladanie nowej gildii.\n" +
+                        "&f/gpowieksz &a- Powieksza teren gildii.\n" +
                         "&f/gdom &a- Teleportowanie do domu gildii.\n" +
                         "&f/ginfo <tag> &a- Informacje na temat danej gildii.\n" +
                         "&f/ginvite <gracz> &a- Zapraszanie gracza do gildii.\n" +

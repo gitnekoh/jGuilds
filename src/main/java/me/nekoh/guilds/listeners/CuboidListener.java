@@ -34,8 +34,12 @@ public class CuboidListener implements Listener {
             Optional<Guild> lastOpGuild = GuildManager.getGuilds().values().stream().parallel().filter(guild -> guild.getCuboid().isIn(event.getFrom())).findFirst();
             Optional<Guild> opGuild = GuildManager.getGuilds().values().stream().parallel().filter(guild -> guild.getCuboid().isIn(event.getTo())).findFirst();
 
-            if (lastOpGuild.isPresent() && opGuild.isPresent() && lastOpGuild.get() != playerData.getGuild() && opGuild.get() != playerData.getGuild()) {
-                ActionBarUtil.sendActionBarMessage(event.getPlayer(), CC.translate("&cJestes na teren wrogiej gildii [" + opGuild.get().getTag() + "]"));
+            if (lastOpGuild.isPresent() && opGuild.isPresent()) {
+                if(lastOpGuild.get() != playerData.getGuild() && opGuild.get() != playerData.getGuild()) {
+                    ActionBarUtil.sendActionBarMessage(event.getPlayer(), CC.translate("&cJestes na teren wrogiej gildii [" + opGuild.get().getTag() + "]"));
+                } else {
+                    ActionBarUtil.sendActionBarMessage(event.getPlayer(), CC.translate("&aJestes na teren swojej gildii [" + opGuild.get().getTag() + "]"));
+                }
             } else if (!lastOpGuild.isPresent() && opGuild.isPresent()) {
                 if (opGuild.get() != playerData.getGuild()) {
                     event.getPlayer().sendMessage(CC.translate("&cWszedles na teren wrogiej gildii [" + opGuild.get().getTag() + "]"));

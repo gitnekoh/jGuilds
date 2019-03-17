@@ -9,7 +9,9 @@ import me.nekoh.guilds.managers.GuildManager;
 import me.nekoh.guilds.managers.PlayerManager;
 import me.nekoh.guilds.player.PlayerData;
 import me.nekoh.guilds.utils.CC;
+import me.nekoh.guilds.utils.InventoryUtils;
 import me.nekoh.guilds.utils.MessageUtils;
+import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -53,6 +55,15 @@ public class JoinCommand extends BaseCommand {
             return;
         }
 
+        int diamondAmount = 20 + guild.getMembers().size() * 16;
+
+        if(!player.getInventory().contains(Material.DIAMOND, diamondAmount)) {
+            sender.sendMessage(CC.translate("&cNie masz wystarczajacej liczby diamentow (" + diamondAmount + ")!"));
+            return;
+        }
+
+        InventoryUtils.removeItems(player.getInventory(), Material.DIAMOND, diamondAmount);
+
         guild.getMemberInvites().remove(player.getUniqueId());
         guild.getMembers().add(player.getUniqueId());
         guild.save();
@@ -60,5 +71,7 @@ public class JoinCommand extends BaseCommand {
         playerData.setGuild(guild);
         sender.sendMessage(CC.translate("&aDolaczyles do gildii &f" + guild.getTag() + "&a!"));
         MessageUtils.broadcast("&aGracz &f" + player.getName() + " &adolaczyl do gildii &f" + guild.getTag() + "&a!");
+
+        guild.save();
     }
 }

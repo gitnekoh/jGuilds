@@ -13,6 +13,7 @@ import me.nekoh.guilds.managers.GuildManager;
 import me.nekoh.guilds.managers.PlayerManager;
 import me.nekoh.guilds.tasks.CooldownTask;
 import me.nekoh.guilds.commands.*;
+import me.nekoh.guilds.tasks.NameTagTask;
 import me.nekoh.guilds.tasks.SortTask;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -44,6 +45,7 @@ public final class Guilds extends JavaPlugin {
 
         new CooldownTask().runTaskTimerAsynchronously(this, 20L, 20L);
         new SortTask().runTaskTimerAsynchronously(this, 20 * 60, 20L);
+        new NameTagTask().runTaskTimerAsynchronously(this, 0L, 20L);
         new DataListener();
         new ChatListener();
         new CuboidListener();
@@ -63,7 +65,7 @@ public final class Guilds extends JavaPlugin {
 
     private void loadCommands() {
         CommandManager commandManager = new BukkitCommandManager(this);
-
+        commandManager.registerCommand(new EnlargeGuild());
         commandManager.registerCommand(new GuildCommand());
         commandManager.registerCommand(new CreateCommand());
         commandManager.registerCommand(new InfoCommand());

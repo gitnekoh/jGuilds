@@ -24,7 +24,7 @@ public class DataManager {
     public void connect() {
         try {
             long now = System.currentTimeMillis();               
-            this.mongoClient = new MongoClient(new MongoClientURI(""/*ur mongo link*/));
+            this.mongoClient = new MongoClient(new MongoClientURI(""));
             this.mongoDatabase = mongoClient.getDatabase("guild");
             this.players = mongoDatabase.getCollection("players");
             this.guilds = mongoDatabase.getCollection("guilds");

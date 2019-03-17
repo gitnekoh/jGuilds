@@ -1,5 +1,6 @@
 package me.nekoh.guilds.managers;
 
+import com.mongodb.client.model.Filters;
 import lombok.Getter;
 import me.nekoh.guilds.Guilds;
 import me.nekoh.guilds.cuboid.Cuboid;
@@ -32,6 +33,11 @@ public class GuildManager {
         neededItems.put(Material.GOLD_INGOT, 32);
     }
 
+    public static void delete(String tag) {
+        Bukkit.getScheduler().runTaskAsynchronously(Guilds.getInstance(), () -> {
+            Guilds.getInstance().getDataManager().getGuilds().deleteOne(Filters.eq("tag", tag));
+        });
+    }
     @SuppressWarnings("unchecked")
     public void loadAll() {
         Bukkit.getScheduler().runTaskAsynchronously(Guilds.getInstance(), () -> {

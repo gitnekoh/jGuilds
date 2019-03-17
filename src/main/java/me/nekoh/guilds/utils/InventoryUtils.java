@@ -3,7 +3,6 @@ package me.nekoh.guilds.utils;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -15,10 +14,6 @@ import java.util.Map;
 
 public class InventoryUtils {
 
-
-    public static void collectGuildItems(Player player) {
-
-    }
 
     public static String getEnchants(ItemStack i){
         List<String> e = new ArrayList<String>();
