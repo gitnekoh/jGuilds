@@ -36,7 +36,7 @@ public class InfoCommand extends BaseCommand {
         }
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh/mm");
         sender.sendMessage(CC.translate(
-                "&m" + CC.shortLine() + "&a" + guild.getTag() + "&m" + CC.shortLine() +
+                "&7" + CC.shortLine() + "&a" + guild.getTag() + "&7" + CC.shortLine() + "\n" +
                         "&aPelna nazwa: &f" + guild.getName() + "\n" +
                         "&aData zalozenia: &f" + formatter.format(new Date(guild.getCreateTime())) + "\n" +
                         "&aPozycja w rankingu: &f" + GuildManager.getSortedByRankGuilds().indexOf(guild) + "\n" +
@@ -44,7 +44,7 @@ public class InfoCommand extends BaseCommand {
                         "&aLider: &f" + Bukkit.getOfflinePlayer(guild.getLeader()).getName() + "\n" +
                         "&aZastepcy: &f" + CC.formattedModeratorList(guild) + "\n" +
                         "&aCzlonkowie: &f" + CC.formattedMemberList(guild) + "\n" +
-                        "&m" + CC.shortLine()
-        ));
+                        "&7" + CC.shortLine() + "&a" + guild.getTag() + "&7" + CC.shortLine() + "\n")
+        );
     }
 }

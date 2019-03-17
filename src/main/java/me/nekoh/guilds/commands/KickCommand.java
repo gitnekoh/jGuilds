@@ -12,6 +12,7 @@ import org.bukkit.entity.Player;
 
 public class KickCommand extends BaseCommand {
 
+
     @CommandAlias("gkick|gwyrzuc|wyrzuc")
     @CommandPermission("guilds.kick")
     public void execute(CommandSender sender, String name) {

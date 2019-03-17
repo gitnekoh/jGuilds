@@ -57,7 +57,7 @@ public class Guild {
         this.cuboid = new Cuboid(new Location(center.getWorld(), center.getX() + cuboidSize, 256, center.getZ() + cuboidSize), new Location(center.getWorld(), center.getX() - cuboidSize, 0, center.getZ() - cuboidSize));
         this.memberInvites = new ArrayList<>();
         this.moderators = new ArrayList<>();
-        this.members = Collections.singletonList(leader);
+        this.members = new ArrayList<>(Collections.singletonList(this.leader));
         this.alliesInvites = new ArrayList<>();
         this.allies = new ArrayList<>();
         GuildManager.getGuilds().put(tag.toUpperCase(), this);

@@ -63,6 +63,7 @@ public final class Guilds extends JavaPlugin {
 
     private void loadCommands() {
         CommandManager commandManager = new BukkitCommandManager(this);
+
         commandManager.registerCommand(new GuildCommand());
         commandManager.registerCommand(new CreateCommand());
         commandManager.registerCommand(new InfoCommand());

@@ -15,7 +15,7 @@ import org.bukkit.entity.Player;
 
 public class JoinCommand extends BaseCommand {
 
-    @CommandAlias("gjoin|gdolacz|dolacz")
+    @CommandAlias("join|dolacz")
     @CommandPermission("guilds.join")
     @Syntax("<guild/tag>")
     public void execute(CommandSender sender, String tag) {
@@ -54,6 +54,7 @@ public class JoinCommand extends BaseCommand {
         }
 
 
+        System.out.println(guild.getMembers().toArray());
         guild.getMemberInvites().remove(player.getUniqueId());
         guild.getMembers().add(player.getUniqueId());
         guild.save();

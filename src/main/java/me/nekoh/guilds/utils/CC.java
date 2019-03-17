@@ -20,13 +20,13 @@ public class CC {
 
     public static String formattedModeratorList(Guild guild) {
         StringBuilder sb = new StringBuilder();
-        guild.getModerators().forEach(member -> sb.append(Bukkit.getOfflinePlayer(member)).append(", "));
+        guild.getModerators().forEach(member -> sb.append(Bukkit.getOfflinePlayer(member).getName()).append(", "));
         return sb.toString();
     }
 
     public static String formattedMemberList(Guild guild) {
         StringBuilder sb = new StringBuilder();
-        guild.getMembers().forEach(member -> sb.append(Bukkit.getOfflinePlayer(member)).append(", "));
+        guild.getMembers().forEach(member -> sb.append(Bukkit.getOfflinePlayer(member).getName()).append(", "));
         return sb.toString();
     }
 }
