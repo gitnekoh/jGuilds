@@ -3,6 +3,7 @@ package me.nekoh.guilds.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandPermission;
+import co.aikar.commands.annotation.Syntax;
 import me.nekoh.guilds.guild.Guild;
 import me.nekoh.guilds.managers.GuildManager;
 import me.nekoh.guilds.managers.PlayerManager;
@@ -11,8 +12,6 @@ import me.nekoh.guilds.utils.CC;
 import me.nekoh.guilds.utils.MessageUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import javax.annotation.Syntax;
 
 public class JoinCommand extends BaseCommand {
 

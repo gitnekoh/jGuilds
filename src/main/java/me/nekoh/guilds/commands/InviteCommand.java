@@ -3,14 +3,13 @@ package me.nekoh.guilds.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandPermission;
+import co.aikar.commands.annotation.Syntax;
 import me.nekoh.guilds.managers.PlayerManager;
 import me.nekoh.guilds.player.PlayerData;
 import me.nekoh.guilds.utils.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import javax.annotation.Syntax;
 
 public class InviteCommand extends BaseCommand {
 

@@ -20,7 +20,8 @@ public class GuildManager {
 
     @Getter
     private static HashMap<String, Guild> guilds = new HashMap<>();
-
+    @Getter
+    private static List<Guild> sortedByRankGuilds = new ArrayList<>();
     @Getter
     private static HashMap<Material, Integer> neededItems = new HashMap<>();
 
@@ -41,9 +42,11 @@ public class GuildManager {
                 long now1 = System.currentTimeMillis();
 
                 Guild guild = new Guild(doc.getString("tag"), doc.getString("name"));
+                guild.setCreator(UUID.fromString(doc.getString("creator")));
                 guild.setLeader(UUID.fromString(doc.getString("leader")));
                 guild.setCenter(LocationUtils.deserialize(doc.getString("center")));
                 guild.setHome(LocationUtils.deserialize(doc.getString("home")));
+                guild.setCreateTime(doc.getLong("createTime"));
                 guild.setMaxMembers(doc.getInteger("maxMembers"));
                 guild.setCuboidSize(doc.getInteger("cuboidSize"));
                 guild.setCuboid(new Cuboid(new Location(guild.getCenter().getWorld(), guild.getCenter().getX() + guild.getCuboidSize(), 257, guild.getCenter().getZ() + guild.getCuboidSize()), new Location(guild.getCenter().getWorld(), guild.getCenter().getX() - guild.getCuboidSize(), -1, guild.getCenter().getZ() - guild.getCuboidSize())));
@@ -57,6 +60,7 @@ public class GuildManager {
                 Bukkit.getLogger().log(Level.INFO, "Loaded guild " + guild.getName() + " in " + (System.currentTimeMillis() - now1) + " ms.");
                 x.incrementAndGet();
             }
+            sortedByRankGuilds.addAll(guilds.values());
             Bukkit.getScheduler().runTask(Guilds.getInstance(), () -> Bukkit.getLogger().log(Level.INFO, "Loaded (" + x.get() + ") guilds in " + (System.currentTimeMillis() - now) + " ms."));
         });
     }

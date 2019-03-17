@@ -41,7 +41,7 @@ public class ActionBarUtil {
         CraftPlayer player = (CraftPlayer) bukkitPlayer;
         IChatBaseComponent chatBaseComponent = IChatBaseComponent.ChatSerializer.a(rawMessage);
         PacketPlayOutChat packetPlayOutChat = new PacketPlayOutChat(chatBaseComponent, (byte) 2);
-        player.getHandle().playerConnection.sendPacket(packetPlayOutChat);
+        ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packetPlayOutChat);
     }
 
     /**

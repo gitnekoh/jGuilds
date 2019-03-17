@@ -23,9 +23,11 @@ public class Guild {
 
     private String name;
     private String tag;
+    private UUID creator;
     private UUID leader;
     private Location center;
     private Location home;
+    private long createTime;
     private int maxMembers;
     private int cuboidSize;
     private int rank;
@@ -45,9 +47,11 @@ public class Guild {
     public Guild(String name, String tag, UUID leader, Location center, int maxMembers, int cuboidSize) {
         this.name = name;
         this.tag = tag;
+        this.creator = leader;
         this.leader = leader;
         this.center = center;
         this.home = center;
+        this.createTime = System.currentTimeMillis();
         this.maxMembers = maxMembers;
         this.cuboidSize = cuboidSize;
         this.cuboid = new Cuboid(new Location(center.getWorld(), center.getX() + cuboidSize, 256, center.getZ() + cuboidSize), new Location(center.getWorld(), center.getX() - cuboidSize, 0, center.getZ() - cuboidSize));
@@ -66,9 +70,11 @@ public class Guild {
             Document doc = new Document("name", this.name);
 
             doc.append("tag", this.tag)
+                    .append("creator", this.creator.toString())
                     .append("leader", this.leader.toString())
                     .append("center", LocationUtils.serialize(this.center))
                     .append("home", LocationUtils.serialize(this.home))
+                    .append("createTime", this.createTime)
                     .append("maxMembers", this.maxMembers)
                     .append("cuboidSize", this.cuboidSize)
                     .append("rank", this.rank)

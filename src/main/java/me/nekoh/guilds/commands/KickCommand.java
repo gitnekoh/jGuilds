@@ -10,13 +10,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import javax.annotation.Syntax;
-
 public class KickCommand extends BaseCommand {
 
     @CommandAlias("gkick|gwyrzuc|wyrzuc")
     @CommandPermission("guilds.kick")
-    @Syntax("<player>")
     public void execute(CommandSender sender, String name) {
         if (!(sender instanceof Player)) {
             sender.sendMessage(CC.translate("&cTa komenda moze byc uzyta tylko w grze!"));
